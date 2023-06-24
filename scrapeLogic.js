@@ -16,7 +16,7 @@ const scrapeLogic = async (res) => {
     try{
       const page = await browser.newPage();
 
-      // throw new Error("whooops!");
+      // throw new Error("whooops!"); //testing to see if try catch works
     
       await page.goto('https://pipandebby.com/wprm_print/8249');  //Apple Jam Pie Recipe Without Pectin
     
