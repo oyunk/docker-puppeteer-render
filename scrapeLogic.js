@@ -6,9 +6,11 @@ const scrapeLogic = async (res) => {
 
     //2023-06-21: https://stackoverflow.com/questions/64117723/puppeteer-failed-to-launch-the-browser-process-spawn
     //to locate where chromium/chrome browser is
-    const locateChrome = require('locate-chrome');
-    const executablePath = await new Promise(resolve => locateChrome(arg => resolve(arg)));
-    const browser = await puppeteer.launch({ headless: 'new', executablePath });
+    // const locateChrome = require('locate-chrome');
+    // const executablePath = await new Promise(resolve => locateChrome(arg => resolve(arg)));
+    // const browser = await puppeteer.launch({ headless: 'new', executablePath });
+
+    const browser = await puppeteer.launch({ headless: 'new'});
 
     
     try{
