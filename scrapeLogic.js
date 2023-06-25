@@ -11,8 +11,6 @@ const scrapeLogic = async (res) => {
     // const executablePath = await new Promise(resolve => locateChrome(arg => resolve(arg)));
     // const browser = await puppeteer.launch({ headless: 'new', executablePath });
 
-    console.log('AAA:');
-
 
     const browser = await puppeteer.launch({
       headless: 'new',
@@ -25,9 +23,12 @@ const scrapeLogic = async (res) => {
       executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath()
     });
 
-    console.log('BBB:');
 
     //@@@@@@@ 2023-06-24: keep getting "Something went wrong while running Puppeteer :( Error: Requesting main frame too early!"
+    //@@@ my chrome installations are here: C:\Users\tiffa_000\.cache\puppeteer\chrome
+    //https://stackoverflow.com/questions/59979188/error-failed-to-launch-the-browser-process-puppeteer
+    //https://stackoverflow.com/questions/53997175/puppeteer-error-chromium-revision-is-not-downloaded
+    //Running Puppeteer in Docker: https://pptr.dev/troubleshooting
     
     // try{
       // const page = await browser.newPage();
@@ -60,22 +61,23 @@ const scrapeLogic = async (res) => {
 
       const [page] = await browser.pages();
 
-      console.log('CCC:');
+      console.log('AAA:');
 
 
       try{
 			  
-				console.log('Navigating to Galleria url ...');
+            console.log('Navigating to my url ...');
 
-        await new Promise((resolve) => { setTimeout(resolve, 10000); });
+            await new Promise((resolve) => { setTimeout(resolve, 10000); }); //i added for testing
 
-        console.log('DDD:');
+            console.log('BBB:');
 
-        await page.goto("https://www.google.ca/", {waitUntil: "domcontentloaded", timeout: 30000});
-			  
-				// await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 30000});
+            await page.goto("https://www.google.ca/", {waitUntil: "domcontentloaded", timeout: 30000});
+            
+            // await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 30000});
 
-        console.log('EEE:');
+            console.log('CCC:');
+            
 			  
 				const divProdList = await page.waitForSelector('#divProdList');
 
