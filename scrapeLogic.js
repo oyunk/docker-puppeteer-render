@@ -62,19 +62,18 @@ const scrapeLogic = async (res) => {
 
       console.log('CCC:');
 
-      await new Promise((resolve) => { setTimeout(resolve, 9000); });
-
-      console.log('DDD:');
 
       try{
-
-        console.log('EEE:');
 			  
 				console.log('Navigating to Galleria url ...');
 
-        console.log('FFF:');
+        await new Promise((resolve) => { setTimeout(resolve, 9000); });
+
+        console.log('DDD:');
 			  
-				await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 9000});
+				await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 15000});
+
+        console.log('EEE:');
 			  
 				const divProdList = await page.waitForSelector('#divProdList');
 
