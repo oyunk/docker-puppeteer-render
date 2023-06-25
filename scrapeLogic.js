@@ -67,11 +67,11 @@ const scrapeLogic = async (res) => {
 			  
 				console.log('Navigating to Galleria url ...');
 
-        await new Promise((resolve) => { setTimeout(resolve, 9000); });
+        await new Promise((resolve) => { setTimeout(resolve, 10000); });
 
         console.log('DDD:');
 			  
-				await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 15000});
+				await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 30000});
 
         console.log('EEE:');
 			  
