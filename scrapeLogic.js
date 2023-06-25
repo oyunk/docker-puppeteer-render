@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+require("dotenv").config();
 
 const scrapeLogic = async (res) => {
     // res.send("Hello from scrapeLogic!");
@@ -10,8 +11,16 @@ const scrapeLogic = async (res) => {
     // const executablePath = await new Promise(resolve => locateChrome(arg => resolve(arg)));
     // const browser = await puppeteer.launch({ headless: 'new', executablePath });
 
-    const browser = await puppeteer.launch({ headless: 'new'});
-
+    const browser = await puppeteer.launch({
+      headless: 'new',
+      args: [
+        "--disable-setuid-sandbox",
+        "--no-sandbox",  //disables LINUX sandboxing
+        "--single-process",
+        "--no-zygote"  //to not run too many chromium processes at same time
+      ],
+      executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath()
+    });
     
     try{
       const page = await browser.newPage();
