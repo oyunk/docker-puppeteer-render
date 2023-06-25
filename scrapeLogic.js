@@ -68,15 +68,15 @@ const scrapeLogic = async (res) => {
 			  
             console.log('Navigating to my url ...');
 
-            // await new Promise((resolve) => { setTimeout(resolve, 10000); }); //i added for testing
+            await new Promise((resolve) => { setTimeout(resolve, 10000); }); //i added for testing
 
             console.log('BBB:');
 
             // await page.goto("https://www.google.ca/", {waitUntil: "domcontentloaded", timeout: 30000});
 
-            // await page.goto("https://www.google.ca/", {waitUntil: "networkidle0", timeout: 30000});
+            await page.goto("https://www.google.ca/", {waitUntil: "networkidle0", timeout: 30000});
             
-            await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 30000});
+            // await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 30000});
 
             console.log('CCC:');
             
