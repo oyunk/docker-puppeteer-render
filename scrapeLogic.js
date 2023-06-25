@@ -11,6 +11,9 @@ const scrapeLogic = async (res) => {
     // const executablePath = await new Promise(resolve => locateChrome(arg => resolve(arg)));
     // const browser = await puppeteer.launch({ headless: 'new', executablePath });
 
+    console.log('AAA:');
+
+
     const browser = await puppeteer.launch({
       headless: 'new',
       args: [
@@ -21,6 +24,8 @@ const scrapeLogic = async (res) => {
       ],
       executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath()
     });
+
+    console.log('BBB:');
 
     //@@@@@@@ 2023-06-24: keep getting "Something went wrong while running Puppeteer :( Error: Requesting main frame too early!"
     
@@ -55,9 +60,19 @@ const scrapeLogic = async (res) => {
 
       const [page] = await browser.pages();
 
+      console.log('CCC:');
+
+      await new Promise((resolve) => { setTimeout(resolve, 9000); });
+
+      console.log('DDD:');
+
       try{
+
+        console.log('EEE:');
 			  
 				console.log('Navigating to Galleria url ...');
+
+        console.log('FFF:');
 			  
 				await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 9000});
 			  
