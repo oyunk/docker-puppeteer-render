@@ -27,7 +27,7 @@ const scrapeLogic = async (res) => {
 
       // throw new Error("whooops!"); //testing to see if try catch works
     
-      await page.goto('https://pipandebby.com/wprm_print/8249');  //Apple Jam Pie Recipe Without Pectin
+      await page.goto('https://pipandebby.com/wprm_print/8249', {waitUntil: "domcontentloaded", timeout: 90000});  //Apple Jam Pie Recipe Without Pectin
     
       // Set screen size
       await page.setViewport({width: 1080, height: 1024});
