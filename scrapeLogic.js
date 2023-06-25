@@ -24,7 +24,7 @@ const scrapeLogic = async (res) => {
 
     //@@@@@@@ 2023-06-24: keep getting "Something went wrong while running Puppeteer :( Error: Requesting main frame too early!"
     
-    try{
+    // try{
       // const page = await browser.newPage();
 
       // await new Promise((resolve) => { setTimeout(resolve, 9000); });
@@ -54,6 +54,8 @@ const scrapeLogic = async (res) => {
       // res.send(fullTitle);  //i added based on tutorial
 
       const [page] = await browser.pages();
+
+      try{
 			  
 				console.log('Navigating to Galleria url ...');
 			  
