@@ -7,22 +7,22 @@ const scrapeLogic = async (res) => {
 
     //2023-06-21: https://stackoverflow.com/questions/64117723/puppeteer-failed-to-launch-the-browser-process-spawn
     //to locate where chromium/chrome browser is
-    const locateChrome = require('locate-chrome');
-    const executablePath = await new Promise(resolve => locateChrome(arg => resolve(arg)));
-    const browser = await puppeteer.launch({ headless: 'new', executablePath });
+    // const locateChrome = require('locate-chrome');
+    // const executablePath = await new Promise(resolve => locateChrome(arg => resolve(arg)));
+    // const browser = await puppeteer.launch({ headless: 'new', executablePath });
 
     console.log('PIG:');
 
-    // const browser = await puppeteer.launch({
-    //   headless: 'new',
-    //   args: [
-    //     "--disable-setuid-sandbox",
-    //     "--no-sandbox",  //disables LINUX sandboxing
-    //     "--single-process",
-    //     "--no-zygote"  //to not run too many chromium processes at same time
-    //   ],
-    //   executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath()
-    // });
+    const browser = await puppeteer.launch({
+      headless: 'new',
+      args: [
+        "--disable-setuid-sandbox",
+        "--no-sandbox",  //disables LINUX sandboxing
+        "--single-process",
+        "--no-zygote"  //to not run too many chromium processes at same time
+      ],
+      executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath()
+    });
 
 
     //@@@@@@@ 2023-06-24: keep getting "Something went wrong while running Puppeteer :( Error: Requesting main frame too early!"
@@ -69,7 +69,7 @@ const scrapeLogic = async (res) => {
 			  
             console.log('Navigating to my url ...');
 
-            // await new Promise((resolve) => { setTimeout(resolve, 10000); }); //i added for testing
+            await new Promise((resolve) => { setTimeout(resolve, 10000); }); //i added for testing
 
             // await page.waitForNavigation();
 
