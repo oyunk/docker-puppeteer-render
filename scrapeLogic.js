@@ -65,11 +65,13 @@ const scrapeLogic = async (res) => {
       console.log('AAA:');
 
 
-      
+      try{
 			  
             console.log('Navigating to my url ...');
 
-            await new Promise((resolve) => { setTimeout(resolve, 10000); }); //i added for testing
+            // await new Promise((resolve) => { setTimeout(resolve, 10000); }); //i added for testing
+
+            await page.waitForNavigation();
 
             console.log('BBB:');
 
@@ -80,7 +82,7 @@ const scrapeLogic = async (res) => {
             await page.goto("https://www.galleriasm.com/Category/ProductListWithCate?Searchtext=AE05&BranchNo=002&langCode=EN&Sort=&TotalCount=40&CurrrentPage=1&Pagesize=40&MakerName=&avail=Y", {waitUntil: "domcontentloaded", timeout: 30000});
 
             console.log('CCC:');
-    try{
+            
 			  
 				const divProdList = await page.waitForSelector('#divProdList');
 
