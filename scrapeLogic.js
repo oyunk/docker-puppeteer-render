@@ -65,7 +65,7 @@ const scrapeLogic = async (res) => {
       console.log('AAA:');
 
 
-      // try{
+      try{
 			  
             console.log('Navigating to my url ...');
 
@@ -105,15 +105,15 @@ const scrapeLogic = async (res) => {
         res.send(bakedItems);
 			  
 
-    // }catch (err){
+    }catch (err){
 
-    //   console.log(`There is an error : ${err}`);
+      console.log(`There is an error : ${err}`);
 
-    //   res.send(`Something went wrong while running Puppeteer :(  ${err}`);
+      res.send(`Something went wrong while running Puppeteer :(  ${err}`);
 
-    // } finally{
+    } finally{
       await browser.close();
-    // }
+    }
 
     
     
