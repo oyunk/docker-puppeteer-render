@@ -16,8 +16,8 @@ const scrapeLogic = async (res) => {
     const browser = await puppeteer.launch({
       headless: 'new',
       args: [
-        // "--disable-setuid-sandbox",
-        // "--no-sandbox",  //disables LINUX sandboxing
+        "--disable-setuid-sandbox",
+        "--no-sandbox",  //disables LINUX sandboxing
         "--single-process",
         "--no-zygote"  //to not run too many chromium processes at same time
       ],
